@@ -1,0 +1,16 @@
+meta {
+  name: Get one
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{BASE_URL}}/deals/counterparties/2
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+  ~SECRET-KEY: {{secret_key}}
+}

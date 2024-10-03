@@ -1,0 +1,24 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{BASE_URL}}/deals/contacts/1
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+  ~SECRET-KEY: {{secret_key}}
+}
+
+body:json {
+  {
+    "name": "Contact1_updated",
+    "email": "test@nrgconsulting.es",
+    "phone": "+34 616052797"
+  }
+}

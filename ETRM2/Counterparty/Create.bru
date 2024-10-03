@@ -1,0 +1,32 @@
+meta {
+  name: Create
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/deals/counterparties/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+  ~SECRET-KEY: {{secret_key}}
+}
+
+body:json {
+  {
+    "about": {
+      "description": "Counterparty description",
+      "address": "Counterparty address",
+      "phone": "Counterparty phone"
+    },
+    "name": "CTP_Created",
+    "type": 1,
+    "cif": "3333333A",
+    "contacts": [
+      2
+    ]
+  }
+}

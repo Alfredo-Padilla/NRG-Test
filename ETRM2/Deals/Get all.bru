@@ -1,0 +1,20 @@
+meta {
+  name: Get all
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{BASE_URL}}/deals/?scenario=datatable
+  body: none
+  auth: none
+}
+
+params:query {
+  scenario: datatable
+}
+
+headers {
+  Authorization: Token {{token}}
+  ~SECRET-KEY: {{secret_key}}
+}

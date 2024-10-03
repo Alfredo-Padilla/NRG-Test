@@ -1,0 +1,32 @@
+meta {
+  name: Update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{BASE_URL}}/deals/counterparties/2/
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Token {{token}}
+  ~SECRET-KEY: {{secret_key}}
+}
+
+body:json {
+  {
+    "about": {
+      "description": "Counterparty description",
+      "address": "Counterparty address",
+      "phone": "Counterparty phone"
+    },
+    "name": "CTP_UPDATED",
+    "type": 1,
+    "cif": "47574572A",
+    "contacts": [
+      3
+    ]
+  }
+}

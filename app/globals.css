@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #000000;
+  --gray-dark: #14213d;
+  --orange: #fca311;
+  --gray-light: #e5e5e5;
+  --white: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--white);
+    --foreground: var(--black);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button {
+  background-color: var(--orange);
+  padding: 0.25rem 1rem;
+  user-select: none;
+  font-weight: bold;
+}
+.button:hover {
+  filter: brightness(0.9);
+}
+
+.table {
+  border-collapse: collapse;
+}
+.table :is(td, th) {
+  padding: 0.5rem 1rem;
+}
+
+.sidebar-item {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+.sidebar-item:hover {
+  background: var(--orange);
+}
+
+.dashboard-page h1 {
+  font-weight: bold;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: var(--gray-dark);
+  align-self: flex-start;
+  margin: 1rem 0;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.floating-notification {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  padding: 1rem;
+  background: var(--white);
+  opacity: 1;
+  transform: translateX(0px);
+  transition: opacity 0.4s, transform 0.5s;  
+}
+.floating-notification:empty {
+  opacity: 0;
+  transform: translateX(-10px);
+}
