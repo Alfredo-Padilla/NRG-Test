@@ -33,6 +33,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                             <SidebarItem label="Users" path="/dashboard/users" />
                             <SidebarItem label="Principals" path="/dashboard/principals" />
                             <SidebarItem label="Settings" path="/dashboard/settings" />
+                            <SidebarItem label="Log Out" path="/logout" />
                         </>
                     )}
                     {user.groups[0].name === 'user' && (
@@ -40,6 +41,8 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                             <SidebarItem label="Deals" path="/dashboard/deals"/>
                             <SidebarItem label="Counterparties" path="/dashboard/counterparties" />
                             <SidebarItem label="Settings" path="/dashboard/settings" />
+                            <SidebarItem label="Settings" path="/dashboard/settings" />
+                            <SidebarItem label="Log Out" path="/logout" />
                         </>
                     )}
                 </div>
