@@ -46,10 +46,10 @@ export default function Counterparties() {
     };
 
     const search = (name: string) => {
-        console.log(name);
-        const name_match = [...counterparties].filter((counterparty: any) => counterparty.name.includes(name));
-        const id_match = [...counterparties].filter((counterparty: any) => counterparty.id.toString().includes(name));
-        const type_match = [...counterparties].filter((counterparty: any) => counterparty.type.includes(name));
+        name = name.toLowerCase();
+        const name_match = [...counterparties].filter((counterparty: any) => counterparty.name.toLowerCase().includes(name));
+        const id_match = [...counterparties].filter((counterparty: any) => counterparty.id.toString().toLowerCase().includes(name));
+        const type_match = [...counterparties].filter((counterparty: any) => counterparty.type.toString().toLowerCase().includes(name));
         // Make sure there are no duplicates in searched
         const searched = Array.from(new Set([...name_match, ...id_match, ...type_match]));
         setCounterparties(searched);
@@ -63,7 +63,7 @@ export default function Counterparties() {
       <div className="dashboard-page flex flex-col items-center justify-center">
         <h1>Counterparties</h1>
         
-        <div className="flex flex-col shadow bg-white p-4 ">
+        <div className="shadow bg-white p-4 w-full">
           <div className="flex flex-row justify-between mb-4">
             <input className='bg-gray-light p-1 mr-5' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
             <div className="flex flex-row">
@@ -73,7 +73,7 @@ export default function Counterparties() {
             </div>
           </div>
 
-          <table className="table table-auto text-left">
+          <table className="dashboard-table">
             <thead>
                 <tr>
                     <th>ID</th>

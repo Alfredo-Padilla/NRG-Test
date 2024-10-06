@@ -17,27 +17,32 @@
   }
 }
 
+header {
+  height: 64px;
+  z-index: 100;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-.button {
-  background-color: var(--orange);
-  padding: 0.25rem 1rem;
-  user-select: none;
-  font-weight: bold;
-}
-.button:hover {
-  filter: brightness(0.9);
-}
 
-.table {
-  border-collapse: collapse;
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  padding-top: 64px;
+  background: var(--gray-dark);
+  transform: translateX(-200px);
+  border-right: 3px solid var(--gray-dark);
 }
-.table :is(td, th) {
-  padding: 0.5rem 1rem;
+.sidebar.open {
+  transform: translateX(0);
 }
 
 .sidebar-item {
@@ -52,6 +57,42 @@ body {
   background: var(--orange);
 }
 
+input {
+  padding: 0.5rem;
+  border: 1px solid var(--gray-light); 
+  background-color: var(--white);
+}
+input:is([type="text"], [type="email"], [type="password"]),
+.button {
+  width: 100%;
+  max-width: 200px;
+}
+
+.button {
+  background-color: var(--orange);
+  padding: 0.25rem 1rem;
+  user-select: none;
+  font-weight: bold;
+  width: 200px;
+}
+.button:hover {
+  filter: brightness(0.9);
+}
+
+.table {
+  border-collapse: collapse;
+}
+.table :is(td, th) {
+  padding: 0.5rem 1rem;
+}
+
+
+.dashboard-page {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 .dashboard-page h1 {
   font-weight: bold;
   font-size: 2.25rem;
@@ -60,6 +101,23 @@ body {
   align-self: flex-start;
   margin: 1rem 0;
 }
+.dashboard-page h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  color: var(--gray-dark);
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: scroll;
+}
+.dashboard-table :is(th, td) {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
 
 @layer utilities {
   .text-balance {

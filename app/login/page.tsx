@@ -21,16 +21,22 @@ export default function Login() {
   
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        localStorage.setItem('token', data.token);
         setMessage(`Login successful`);
 
-        //wait 1 seconds
-        await new Promise(r => setTimeout(r, 1000));
+        // Make request to get full user data
+        const userResponse = await fetch('http://178.33.249.178:8002'+'/api/auth/me/', {
+          method: 'GET',
+          headers: {
+            'Authorization': `Token ${data.token}`,
+          }
+        });
+        const userData = await userResponse.json();
 
-        // Save data in local storage
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('username', data.username);
-
+        if (userResponse.ok) {
+          localStorage.setItem('user', JSON.stringify(userData));
+        }
+        
         // Redirect to dashboard
         window.location.href = '/dashboard';
       } else {

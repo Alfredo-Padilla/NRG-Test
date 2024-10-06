@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 
 interface MenuProps {
@@ -6,7 +6,18 @@ interface MenuProps {
 }
 
 const Menu: FC<MenuProps> = ({ toggleSidebar }) => {
-    const name = localStorage.getItem('username');
+    const [name, setName] = useState('');
+    
+    useEffect(() => {
+        if (!localStorage.getItem('user')) {
+            window.location.href = '/login';
+        } else {
+            const user = JSON.parse(localStorage.getItem('user') as string);
+            setName(user.first_name);
+        }
+    }, []);
+
+
     return (
         <header className="flex flex-row items-center justify-between w-full h-16 px-8 bg-gray-dark">
             <div className="flex items-center cursor-pointer" onClick={() => toggleSidebar()}>

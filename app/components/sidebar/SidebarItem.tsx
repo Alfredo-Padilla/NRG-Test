@@ -17,6 +17,7 @@ const SidebarItem: FC<SidebarItemProps> = ({ label, path }) => {
   const handleClick = () => {
     if (isClient) {
       router.push(path);
+      // Close sidebar
     }
   };
 
