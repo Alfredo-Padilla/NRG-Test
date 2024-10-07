@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 import SidebarItem from './SidebarItem';
-import './Sidebar.module.css';
+import './Sidebar.css';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -8,7 +8,8 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
-    const user = JSON.parse(localStorage.getItem('user') as string);
+    const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
     let sidebarMenu = null;
 
     useEffect(() => {
@@ -22,8 +23,7 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     }
 
     return (
-        <div className={"sidebar flex flex-col items-center justify-start h-full bg-white text-black select-none overflow-hidden transition-all " + (isOpen ? "open" : "")}>
-            {/* sidebarMenu */}
+        <div className={"sidebar shadow transition-all " + (isOpen ? "open" : "")}>
             {sidebarMenu = (
                 <div className="w-full">
                     {user.groups[0].name === 'admin' && (
@@ -40,7 +40,6 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                         <>
                             <SidebarItem label="Deals" path="/dashboard/deals"/>
                             <SidebarItem label="Counterparties" path="/dashboard/counterparties" />
-                            <SidebarItem label="Settings" path="/dashboard/settings" />
                             <SidebarItem label="Settings" path="/dashboard/settings" />
                             <SidebarItem label="Log Out" path="/logout" />
                         </>

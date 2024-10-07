@@ -1,7 +1,9 @@
-import Image from "next/image";
+import FloatingNotification from "./components/floating-notification/FloatingNotification";
 
 export default function Home() {
   return (
-    <div></div>
+    <div>
+      <FloatingNotification message="Hello World" />
+    </div>
   );
 }

@@ -63,13 +63,20 @@ export default function Users() {
         <div className="dashboard-page flex flex-col items-center justify-center">
             <h1>Users</h1>
             
-            <div className="shadow bg-white p-4 w-full">
+            <div className="shadow bg-white p-5 w-full">
                 <div className="flex flex-row justify-between mb-4">
-                    <input className='bg-gray-light p-1' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
-                    <div className="flex flex-row">
-                        <button className='button mr-1' onClick={() => sort('id')}>Sort by ID</button>
-                        <button className='button mr-1' onClick={() => sort('username')}>Sort by Username</button>
-                        <button className='button' onClick={() => sort('is_staff')}>Sort by Staff</button>
+                    <div className="flex-col">
+                        <h2 className="mb-2">Search</h2>
+                        <input className='bg-gray-light p-1' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
+                    </div>
+                    
+                    <div className="flex-col">
+                        <h2 className="mb-2">Sort By</h2>
+                        <div className="flex flex-row">
+                            <button className='button mr-1' onClick={() => sort('id')}>ID</button>
+                            <button className='button mr-1' onClick={() => sort('username')}>Username</button>
+                            <button className='button' onClick={() => sort('is_staff')}>Staff</button>
+                        </div>
                     </div>
                 </div>
 

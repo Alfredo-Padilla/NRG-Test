@@ -17,7 +17,8 @@ const SidebarItem: FC<SidebarItemProps> = ({ label, path }) => {
   const handleClick = () => {
     if (isClient) {
       router.push(path);
-      // Close sidebar
+      const sidebar = document.querySelector('.sidebar');
+      sidebar?.classList.remove('open');
     }
   };
 

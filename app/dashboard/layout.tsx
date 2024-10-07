@@ -12,8 +12,10 @@ export default function  RootLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
-    const newSidebarOpen = !sidebarOpen;
-    setSidebarOpen(newSidebarOpen);
+    /* const newSidebarOpen = !sidebarOpen;
+    setSidebarOpen(newSidebarOpen); */
+    const sidebar = document.querySelector('.sidebar');
+    sidebar?.classList.toggle('open');
   };
 
   return (

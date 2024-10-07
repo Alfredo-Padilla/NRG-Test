@@ -1,5 +1,5 @@
 "use client";
-import { DocumentMagnifyingGlassIcon, PencilSquareIcon, TrashIcon  } from '@heroicons/react/24/solid';
+import { EyeIcon } from '@heroicons/react/24/solid';
 import { useState, useEffect } from "react";
 
 interface Counterparty {
@@ -63,13 +63,20 @@ export default function Counterparties() {
       <div className="dashboard-page flex flex-col items-center justify-center">
         <h1>Counterparties</h1>
         
-        <div className="shadow bg-white p-4 w-full">
+        <div className="shadow bg-white p-5 w-full">
           <div className="flex flex-row justify-between mb-4">
-            <input className='bg-gray-light p-1 mr-5' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
-            <div className="flex flex-row">
-              <button className='button mr-1' onClick={() => sort('id')}>Sort by ID</button>
-              <button className='button mr-1' onClick={() => sort('name')}>Sort by Name</button>
-              <button className='button' onClick={() => sort('type')}>Sort by Type</button>
+            <div className="flex-col">
+              <h2 className="mb-2">Search</h2>
+              <input className='bg-gray-light p-1 mr-5' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
+            </div>
+           
+            <div className="flex-col">
+              <h2 className="mb-2">Sort by</h2>
+              <div className="flex flex-row">
+                <button className='button mr-1' onClick={() => sort('id')}>ID</button>
+                <button className='button mr-1' onClick={() => sort('name')}>Name</button>
+                <button className='button' onClick={() => sort('type')}>Type</button>
+              </div>
             </div>
           </div>
 
@@ -79,9 +86,6 @@ export default function Counterparties() {
                     <th>ID</th>
                     <th>Name</th>
                     <th>Type</th>
-                    <th>View</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -90,9 +94,6 @@ export default function Counterparties() {
                     <td>{counterparty.id}</td>
                     <td>{counterparty.name}</td>
                     <td>{counterparty.type}</td>
-                    <td className=" text-center"><DocumentMagnifyingGlassIcon className="h-6 w-6 mx-auto cursor-pointer" /></td>
-                    <td className=" text-center"><PencilSquareIcon className="h-6 w-6 mx-auto cursor-pointer" /></td>
-                    <td className=" text-center"><TrashIcon className="h-6 w-6 mx-auto cursor-pointer" /></td>
                 </tr>
                 ))}
             </tbody>

@@ -1,5 +1,4 @@
 "use client";
-import { DocumentMagnifyingGlassIcon, PencilSquareIcon, TrashIcon  } from '@heroicons/react/24/solid';
 import { useState, useEffect } from "react";
 
 interface Principal {
@@ -62,14 +61,20 @@ export default function Principals() {
         <div className="dashboard-page flex flex-col items-center justify-center">
         <h1>Principals</h1>
         
-        <div className="shadow bg-white p-4 w-full">
+        <div className="shadow bg-white p-5 w-full">
           <div className="flex flex-row justify-between mb-4">
-            <input className='bg-gray-light p-1 mr-5' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
+            <div className="flex-col">
+                <h2 className="mb-2">Search</h2>
+                <input className='bg-gray-light p-1 mr-5' type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
+            </div>
 
-            <div className="flex flex-row">
-              <button className='button mr-1' onClick={() => sort('id')}>Sort by ID</button>
-              <button className='button mr-1' onClick={() => sort('name')}>Sort by Name</button>
-              <button className='button' onClick={() => sort('short_name')}>Sort by Short Name</button>
+            <div className="flex-col">
+                <h2 className="mb-2">Sort</h2>
+                <div className="flex flex-row">
+                    <button className='button mr-1' onClick={() => sort('id')}>Sort by ID</button>
+                    <button className='button mr-1' onClick={() => sort('name')}>Sort by Name</button>
+                    <button className='button' onClick={() => sort('short_name')}>Sort by Short Name</button>
+                </div>
             </div>
           </div>
 
@@ -79,9 +84,6 @@ export default function Principals() {
                     <th>ID</th>
                     <th>Name</th>
                     <th>Short Name</th>
-                    <th>View</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -90,9 +92,6 @@ export default function Principals() {
                     <td>{principal.id}</td>
                     <td>{principal.name}</td>
                     <td>{principal.short_name}</td>
-                    <td><DocumentMagnifyingGlassIcon className="h-5 w-5 text-blue-500" /></td>
-                    <td><PencilSquareIcon className="h-5 w-5 text-blue-500" /></td>
-                    <td><TrashIcon className="h-5 w-5 text-blue-500" /></td>
                 </tr>
                 ))}
             </tbody>

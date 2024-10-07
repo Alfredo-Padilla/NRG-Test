@@ -1,11 +1,11 @@
 USUARIO
     - # Auth
     - # Cambio contraseña
-    - Visualizar contratos
-        - Filtrar contratos
-        - Ver detalles
+    - # Visualizar contratos
+        - # Filtrar contratos
+        - # Ver detalles
     - # Visualizar counterparties
 
 ADMIN
     - # Visualizar usuarios
-    - Visualizar Principals
+    - # Visualizar Principals
